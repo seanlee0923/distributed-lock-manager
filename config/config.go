@@ -1,6 +1,9 @@
-package server
+package config
 
-import "os"
+import (
+	"log"
+	"os"
+)
 
 type Config struct {
 	Port          string `json:"port"`
@@ -11,7 +14,7 @@ type Config struct {
 	MysqlDatabase string `json:"mysql_database"`
 }
 
-var config Config
+var Cfg Config
 
 func InitServerConfig() {
 	port := os.Getenv("DLM_PORT")
@@ -25,13 +28,13 @@ func InitServerConfig() {
 	MysqlPassword := os.Getenv("MYSQL_PASSWORD")
 	MysqlDatabase := os.Getenv("MYSQL_DATABASE")
 	if MysqlHost == "" || MysqlPort == "" || MysqlUser == "" || MysqlPassword == "" || MysqlDatabase == "" {
-		os.Exit(0)
+		log.Fatal("failed to load config")
 	}
 
-	config.Port = port
-	config.MysqlHost = MysqlHost
-	config.MysqlPort = MysqlPort
-	config.MysqlUser = MysqlUser
-	config.MysqlPassword = MysqlPassword
-	config.MysqlDatabase = MysqlDatabase
+	Cfg.Port = port
+	Cfg.MysqlHost = MysqlHost
+	Cfg.MysqlPort = MysqlPort
+	Cfg.MysqlUser = MysqlUser
+	Cfg.MysqlPassword = MysqlPassword
+	Cfg.MysqlDatabase = MysqlDatabase
 }
