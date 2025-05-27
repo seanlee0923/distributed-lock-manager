@@ -9,7 +9,7 @@ import (
 func Run(config config.Config) {
 	r := gin.Default()
 
-	r.POST("/register", func(c *gin.Context) {})
+	r.POST("/register", registerClient)
 	r.POST("/lock/acquire", func(c *gin.Context) {})
 	r.POST("/lock/release", func(c *gin.Context) {})
 
