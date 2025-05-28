@@ -2,9 +2,9 @@ package mysql
 
 import (
 	"database/sql"
-	"dlm/config"
 	"fmt"
 	"log"
+	"pls/config"
 
 	_ "github.com/go-sql-driver/mysql"
 )
