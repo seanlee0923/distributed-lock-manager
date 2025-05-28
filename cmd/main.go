@@ -15,6 +15,9 @@ func main() {
 	mysql.Connect(config.Cfg)
 
 	// 웹 서버 실행
-	server.Run(config.Cfg)
+	go server.Run(config.Cfg)
+
+	// 좀비 커넥션들 지우기
+	go server.ZombieCollector()
 
 }

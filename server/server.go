@@ -12,8 +12,10 @@ func Run(config config.Config) {
 	r.POST("/register", registerClient)
 	r.POST("/unregister", unRegisterClient)
 	r.POST("/leader", GenLeader)
+	r.POST("/alive", KeepAlive)
 
 	if err := r.Run(":" + config.Port); err != nil {
 		log.Fatal(err)
 	}
+
 }
