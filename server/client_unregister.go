@@ -19,7 +19,7 @@ func unRegisterClient(c *gin.Context) {
 		return
 	}
 
-	_, err := mysql.Db.Exec("DELETE FROM dlm_clients WHERE client_id = ? AND deploy_name = ?", req.ClientId, req.DeployName)
+	_, err := mysql.Db.Exec("DELETE FROM pls_clients WHERE id = ? AND deployment_name = ?", req.ClientId, req.DeployName)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "database error"})
 		return
