@@ -10,7 +10,7 @@ func Run(config config.Config) {
 	r := gin.Default()
 
 	r.POST("/register", registerClient)
-	r.POST("/unregister/:clientId", unRegisterClient)
+	r.POST("/unregister", unRegisterClient)
 	r.POST("/leader", GenLeader)
 
 	if err := r.Run(":" + config.Port); err != nil {
