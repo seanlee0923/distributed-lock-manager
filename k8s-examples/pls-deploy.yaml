@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pls-server
+  labels:
+    app: pls-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pls-server
+  template:
+    metadata:
+      name: pls-server
+      labels:
+        app: pls-server
+    spec:
+      containers:
+        - name: pls-server
+          image: seanlee0923/pls-server:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9923
+              protocol: TCP
+          env:
+            - name: MYSQL_HOST
+              value: your.db.address
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_USER
+              value: admin
+            - name: MYSQL_PASSWORD
+              value: qwerasdf
+            - name: MYSQL_DATABASE
+              value: TEST_DB1
+
+      restartPolicy: Always
+      
