@@ -1,9 +1,9 @@
 package main
 
 import (
-	"dlm/config"
-	"dlm/mysql"
-	"dlm/server"
+	"pls/config"
+	"pls/mysql"
+	"pls/server"
 )
 
 func main() {

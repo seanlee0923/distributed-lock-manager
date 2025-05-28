@@ -11,7 +11,7 @@ func Run(config config.Config) {
 
 	r.POST("/register", registerClient)
 	r.DELETE("/unregister/:clientId", unRegisterClient)
-	r.GET("/owner", func(c *gin.Context) {})
+	r.POST("/leader", GenLeader)
 
 	if err := r.Run(":" + config.Port); err != nil {
 		log.Fatal(err)

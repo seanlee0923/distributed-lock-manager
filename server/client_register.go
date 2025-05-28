@@ -17,7 +17,7 @@ func registerClient(c *gin.Context) {
 	}
 
 	clientId := uuid.New().String()
-	_, err := mysql.Db.Exec("INSERT INTO dlm_clients (id, deploy_name) VALUES (?, ?)", clientId, deployName)
+	_, err := mysql.Db.Exec("INSERT INTO pls_clients (id, deploy_name) VALUES (?, ?)", clientId, deployName)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "database error"})
 		return
