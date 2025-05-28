@@ -1,10 +1,10 @@
 package server
 
 import (
-	"dlm/mysql"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"net/http"
+	"pls/mysql"
 )
 
 // registerClient 함수는 디플로이먼트 이름과 uuid를 발급하여
